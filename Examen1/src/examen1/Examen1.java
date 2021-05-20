@@ -7,7 +7,7 @@ package examen1;
 
 /**
  *
- * @author megaten
+ * @author Alejandro Valladares, Mayra Salazar, Nahin Buezo
  */
 public class Examen1 {
 

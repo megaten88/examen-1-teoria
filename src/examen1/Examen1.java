@@ -37,11 +37,12 @@ public class Examen1 {
                     System.out.print("Ingrese una cadena: ");
                     cadena = teclado.nextLine();
                 } while(cadena.length() == 0);
+
                 System.out.println("\nLa cadena ingresada es: \"" + cadena + "\"");
-
-                TercerProblema tp = new TercerProblema();
-                tp.resolverTercerProblema(cadena);
-
+                Abc segundoProblema = new Abc(cadena);
+                System.out.println(segundoProblema.esValida());
+                TercerProblema tercerProblema = new TercerProblema();
+                tercerProblema.resolverTercerProblema(cadena);
             }else if (opcion=='2'){
                 fr.readFile("./src/cadena.txt");
             }else if (opcion=='q') {

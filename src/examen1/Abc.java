@@ -4,20 +4,21 @@
  * and open the template in the editor.
  */
 package examen1;
-​
+
 /**
  *
  * @author Nahin
  */
-public class abc {
-​
+public class Abc {
+
     String texto;
-​
-    public abc(String cadena) {
+
+    public Abc(String cadena) {
         texto = cadena.replace(" ", "");
     }
-​
+
     public String esValida() {
+        System.out.println("\nSegundo problema: L = {a,b,c} Cadena con al menos una a y al menos una b");
         String valida = "";
         if (alfabetico()) {
             int count_a = 0;
@@ -36,25 +37,24 @@ public class abc {
                 }
             }
             if (count_intruso > 0) {
-                valida = "\u001B[31mNo es valida, solo se permiten abc";
+                valida = Colores.TEXT_RED + "No es valida, solo se permiten abc" + Colores.TEXT_RESET;
             } else {
                 if (count_a > 0 && count_b > 0) {
-                    valida = "\033[34mEs valida";
+                    valida = Colores.TEXT_GREEN + "Cadena aceptada" + Colores.TEXT_RESET;
                 } else {
-                    valida = "\u001B[31mNo es valida";
+                    valida = Colores.TEXT_RED + "Cadena rechazada" + Colores.TEXT_RESET;
                 }
             }
-​
         } else {
-            valida = "\u001B[31mNo es valida";
+            valida = Colores.TEXT_RED + "Cadena rechazada" + Colores.TEXT_RESET;
         }
         return valida;
     }
-​
+
     public void setTexto(String nuevo_texto) {
         this.texto = nuevo_texto;
     }
-​
+
     public boolean alfabetico() {
         for (int i = 0; i < texto.length(); i++) {
             char c = texto.charAt(i);

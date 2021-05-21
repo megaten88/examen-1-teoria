@@ -9,11 +9,11 @@ package examen1;
  *
  * @author Nahin
  */
-public class Abc {
+public class Problem2 {
 
     String texto;
 
-    public Abc(String cadena) {
+    public Problem2(String cadena) {
         texto = cadena.replace(" ", "");
     }
 
@@ -36,17 +36,16 @@ public class Abc {
                 }
             }
             if (count_intruso > 0) {
-                valida = "\u001B[31mNo es valida, solo se permiten abc";
+                valida = Colores.TEXT_RED + "No es valida, solo se permiten abc" + Colores.TEXT_RESET;
             } else {
                 if (count_a > 0 && count_b > 0) {
-                    valida = "\033[34mEs valida";
+                    valida = Colores.TEXT_GREEN + "Es válida" + Colores.TEXT_RESET;
                 } else {
-                    valida = "\u001B[31mNo es valida";
+                    valida = Colores.TEXT_RED + "No Es válida" + Colores.TEXT_RESET;
                 }
             }
-
         } else {
-            valida = "\u001B[31mNo es valida";
+            valida = Colores.TEXT_RED + "No Es válida" + Colores.TEXT_RESET;
         }
         return valida;
     }

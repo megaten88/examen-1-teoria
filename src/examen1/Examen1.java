@@ -6,7 +6,6 @@
 package examen1;
 
 import java.util.Scanner;
-import java.io.*;
 
 /**
  *
@@ -18,59 +17,59 @@ public class Examen1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
         Scanner teclado = new Scanner(System.in);
-        String texto;
-        String texto2="";
-        File archivo = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-        try {
-            System.out.println("Ingrese el texto: ");
-            texto = teclado.nextLine();
-            try {
-                // Apertura del fichero y creacion de BufferedReader para poder
-                // hacer una lectura comoda (disponer del metodo readLine()).
-                archivo = new File("./src/examen1/texto.txt");
-                fr = new FileReader(archivo);
-                br = new BufferedReader(fr);
+        String cadena;
+        Scanner opcionScanner = new Scanner(System.in);
+        FileReader fr = new FileReader();
+        char opcion;
 
-                // Lectura del fichero
-                String linea;
-                while ((linea = br.readLine()) != null) {
-                    texto2+=linea;
-                }
-                
-                // Pruebas para el problema 1                
-                Problem1 problema1 = new Problem1(texto);
-                System.out.println("\u001B[30mLa cadena: "+problema1.getUseString()+" "+problema1.parseString(texto, problema1.getFirstChar()));
-                
+        while(true) {
+            System.out.println("---------- Menú ----------");
+            System.out.println("1. Ingresar una cadena desde el teclado");
+            System.out.println("2. Leer desde archivo \"cadena.txt\"");
+            System.out.println("q. Salir");
+            System.out.print("Ingresa una opción el menú: ");
+            opcion = opcionScanner.next().charAt(0);
+
+            if(opcion=='1'){
+                do {
+                    System.out.print("Ingrese una cadena: ");
+                    cadena = teclado.nextLine();
+                } while(cadena.length() == 0);
+
+                System.out.println("\nLa cadena ingresada es: \"" + Colores.TEXT_CYAN +  cadena + Colores.TEXT_RESET + "\"");
+
+                // Pruebas para el problema 1
+                System.out.println("\nPrimer problema: L = {1,0} Cadena de 1s y 0s alternos");
+                Problem1 problema1 = new Problem1(cadena);
+                System.out.println("La cadena: "+problema1.getUseString()+" "+problema1.parseString(cadena, problema1.getFirstChar()));
+
                 // Pruebas para el problema 2
-                Abc problema2 = new Abc(texto);
-                System.out.println("La cadena: "+problema2.texto+" "+problema2.esValida());              
-                problema2.setTexto(texto2);
-                System.out.println("\u001B[30mLa cadena: "+problema2.texto+" "+problema2.esValida());
-                
-                // Pruebas para el problema 4
-                Problem4 problema4 = new Problem4(texto);
-                System.out.println("\u001B[30mLa cadena: "+problema4.getString()+" "+problema4.parseString(problema4.getString()));
-                
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (null != fr) {
-                        fr.close();
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
+                System.out.println("\nSegundo problema: L = {a,b,c} Cadena con al menos una a y al menos una b");
+                Problem2 problem2 = new Problem2(cadena);
+                System.out.println("La cadena: "+ problem2.texto+" "+ problem2.esValida());
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                // Pruebas para el problema 3
+                System.out.println("\nTercer problema: L = {1,0} Cadena con igual cantidad de 1s y 0s en cualquier orden");
+                Problem3 problem3 = new Problem3(cadena);
+                System.out.println("La cadena: " + cadena + " " + problem3.resolverTercerProblema());
+
+                // Pruebas para el problema 4
+                System.out.println("\nCuarto problema: L = {1,0} Cadenas que terminan con 101");
+                Problem4 problema4 = new Problem4(cadena);
+                System.out.println("La cadena: "+problema4.getString()+" "+problema4.parseString(problema4.getString()));
+                System.out.println();
+
+            }else if (opcion=='2'){
+                fr.readFile("./src/cadena.txt");
+            }else if (opcion=='q') {
+                System.out.println("Saliendo...");
+                return;
+            } else {
+                System.out.println("Opción inválida\n");
+            }
         }
 
     }
-
 }

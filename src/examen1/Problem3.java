@@ -1,13 +1,16 @@
 package examen1;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Alejandro Valladares
  */
-public class TercerProblema {
-    void resolverTercerProblema(String cadena) {
+public class Problem3 {
+    private String cadena;
+    public Problem3(String cadena){
+        this.cadena = cadena;
+    }
+
+    public String resolverTercerProblema() {
         int oneCounter = 0;
         int zeroCounter = 0;
         for (int i = 0; i < cadena.length(); i++) {
@@ -16,8 +19,7 @@ public class TercerProblema {
             }
             else if(cadena.charAt(i) != '1' && cadena.charAt(i) != '0') {
                 System.out.println("El caracter \"" +  cadena.charAt(i) + "\" en la posición " + ++i + " no está permitido! Solo se permiten 1s y 0s.");
-                System.out.println(Colores.TEXT_RED + "Cadena rechazada\n" + Colores.TEXT_RESET);
-                return;
+                return Colores.TEXT_RED + "No Es válida" + Colores.TEXT_RESET;
             }
             else if(cadena.charAt(i) == '1'){
                 oneCounter++;
@@ -31,10 +33,10 @@ public class TercerProblema {
         System.out.println("La cantidad de 0s es: " + zeroCounter);
 
         if(oneCounter == zeroCounter){
-            System.out.println(Colores.TEXT_GREEN + "Cadena aceptada\n" + Colores.TEXT_RESET);
+            return Colores.TEXT_GREEN + "Es válida" + Colores.TEXT_RESET;
         }
         else {
-            System.out.println(Colores.TEXT_RED + "Cadena rechazada\n" + Colores.TEXT_RESET);
+            return Colores.TEXT_RED + "No Es válida" + Colores.TEXT_RESET;
         }
     }
 }

@@ -22,12 +22,12 @@ public class Problem4 {
     }
     
     public String parseString(String validate){
-        String valid = "\033[34mEs válida";
+        String valid = Colores.TEXT_GREEN +  "Es válida" + Colores.TEXT_RESET;
          if(validate.length() == 3){
              if(validate.equals("101")){
-                 valid = "\033[34mEs válida";
+                 valid = Colores.TEXT_GREEN +  "Es válida" + Colores.TEXT_RESET;
              }else{
-                  valid = "\u001B[31mNo es válida, no termina en 101";
+                 valid = Colores.TEXT_RED +  "No es válida, no termina en 101" + Colores.TEXT_RESET;
              }
            return valid;
        }else{
@@ -35,11 +35,9 @@ public class Problem4 {
            if(initial=='1'|| initial == '0'){
                return parseString(validate.substring(1));
            }else{
-               valid = "\u001B[31mNo es válida";
+               valid = Colores.TEXT_RED +  "No es válida" + Colores.TEXT_RESET;
                return valid;
            }
         }
-       
     }
-    
 }

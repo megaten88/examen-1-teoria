@@ -39,10 +39,27 @@ public class Examen1 {
                 } while(cadena.length() == 0);
 
                 System.out.println("\nLa cadena ingresada es: \"" + cadena + "\"");
-                Abc segundoProblema = new Abc(cadena);
-                System.out.println(segundoProblema.esValida());
+
+                // Pruebas para el problema 1
+                System.out.println("\nPrimer problema: L = {1,0} Cadena de 1s y 0s alternos");
+                Problem1 problema1 = new Problem1(cadena);
+                System.out.println("La cadena: "+problema1.getUseString()+" "+problema1.parseString(cadena, problema1.getFirstChar()));
+
+                // Pruebas para el problema 2
+                System.out.println("\nSegundo problema: L = {a,b,c} Cadena con al menos una a y al menos una b");
+                Abc problema2 = new Abc(cadena);
+                System.out.println("La cadena: "+problema2.texto+" "+problema2.esValida());
+
+                // Pruebas para el problema 3
+                System.out.println("\nTercer problema: L = {1,0} Cadena con igual cantidad de 1s y 0s en cualquier orden");
                 TercerProblema tercerProblema = new TercerProblema();
                 tercerProblema.resolverTercerProblema(cadena);
+
+                // Pruebas para el problema 4
+                System.out.println("\nCuarto problema: L = {1,0} Cadenas que terminan con 101");
+                Problem4 problema4 = new Problem4(cadena);
+                System.out.println("La cadena: "+problema4.getString()+" "+problema4.parseString(problema4.getString()));
+
             }else if (opcion=='2'){
                 fr.readFile("./src/cadena.txt");
             }else if (opcion=='q') {

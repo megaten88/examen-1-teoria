@@ -18,7 +18,6 @@ public class Abc {
     }
 
     public String esValida() {
-        System.out.println("\nSegundo problema: L = {a,b,c} Cadena con al menos una a y al menos una b");
         String valida = "";
         if (alfabetico()) {
             int count_a = 0;

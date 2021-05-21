@@ -16,7 +16,6 @@ public class Problem1 {
         //get the first char to validate
         this.firstChar = receiveString.charAt(0);
         this.useString = receiveString;
-        
     }
     
     public char getFirstChar(){
@@ -27,7 +26,7 @@ public class Problem1 {
     }
 
     public String parseString(String string, char validate){
-       String valid = "\033[34mEs válida";
+       String valid = Colores.TEXT_GREEN +  "Es válida" + Colores.TEXT_RESET;
        if(string.length() == 0){
            return valid;
        }else{
@@ -38,11 +37,9 @@ public class Problem1 {
            }else if(initial == '0'&& initial==validate){
                return parseString(string.substring(1),'1');
            }else{
-               valid = "\u001B[31mNo es válida";
+               valid = Colores.TEXT_RED + "No es válida" + Colores.TEXT_RESET;
                return valid;
            }
        }
-        
     };
-    
 }

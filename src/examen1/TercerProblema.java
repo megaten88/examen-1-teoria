@@ -8,8 +8,6 @@ import java.util.Scanner;
  */
 public class TercerProblema {
     void resolverTercerProblema(String cadena) {
-        System.out.println("\nTercer problema: L = {1,0} Cadena con igual cantidad de 1s y 0s en cualquier orden");
-
         int oneCounter = 0;
         int zeroCounter = 0;
         for (int i = 0; i < cadena.length(); i++) {

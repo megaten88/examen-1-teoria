@@ -41,13 +41,19 @@ public class Examen1 {
                     texto2+=linea;
                 }
                 
-                Problem1 problem = new Problem1(texto);
-                System.out.print(problem.parseString(texto, problem.getFirstChar()));
-//                Abc ejercicio6 = new Abc(texto);
-//                System.out.println("La cadena: "+ejercicio6.texto+" "+ejercicio6.esValida());
-//                
-//                ejercicio6.setTexto(texto2);
-//                System.out.println("\u001B[30mLa cadena: "+ejercicio6.texto+" "+ejercicio6.esValida());
+                // Pruebas para el problema 1                
+                Problem1 problema1 = new Problem1(texto);
+                System.out.println("\u001B[30mLa cadena: "+problema1.getUseString()+" "+problema1.parseString(texto, problema1.getFirstChar()));
+                
+                // Pruebas para el problema 2
+                Abc problema2 = new Abc(texto);
+                System.out.println("La cadena: "+problema2.texto+" "+problema2.esValida());              
+                problema2.setTexto(texto2);
+                System.out.println("\u001B[30mLa cadena: "+problema2.texto+" "+problema2.esValida());
+                
+                // Pruebas para el problema 4
+                Problem4 problema4 = new Problem4(texto);
+                System.out.println("\u001B[30mLa cadena: "+problema4.getString()+" "+problema4.parseString(problema4.getString()));
                 
             } catch (Exception e) {
                 e.printStackTrace();

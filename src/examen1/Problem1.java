@@ -11,15 +11,19 @@ package examen1;
  */
 public class Problem1 {
     private char firstChar;
-    
-    public Problem1(String cadena){
+    private String useString;
+    public Problem1(String receiveString){
         //get the first char to validate
-        this.firstChar = cadena.charAt(0);
+        this.firstChar = receiveString.charAt(0);
+        this.useString = receiveString;
         
     }
     
     public char getFirstChar(){
-        return firstChar;
+        return this.firstChar;
+    }
+    public String getUseString(){
+        return this.useString;
     }
 
     public String parseString(String string, char validate){

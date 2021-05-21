@@ -17,10 +17,29 @@ public class Problem4 {
         this.string = receive;
     }
     
-    public String parseString(){
+    public String getString(){
+        return this.string;
+    }
+    
+    public String parseString(String validate){
         String valid = "\033[34mEs válida";
-        
-        return valid;
+         if(validate.length() == 3){
+             if(validate.equals("101")){
+                 valid = "\033[34mEs válida";
+             }else{
+                  valid = "\u001B[31mNo es válida, no termina en 101";
+             }
+           return valid;
+       }else{
+           char initial = validate.charAt(0);
+           if(initial=='1'|| initial == '0'){
+               return parseString(validate.substring(1));
+           }else{
+               valid = "\u001B[31mNo es válida";
+               return valid;
+           }
+        }
+       
     }
     
 }

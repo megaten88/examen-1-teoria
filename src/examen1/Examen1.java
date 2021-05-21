@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package examen1;
-​
+
 import java.util.Scanner;
 import java.io.*;
-​
+
 /**
  *
  * @author Alejandro Valladares, Mayra Salazar, Nahin Buezo
  */
 public class Examen1 {
-​
+
     /**
      * @param args the command line arguments
      */
@@ -31,20 +31,23 @@ public class Examen1 {
             try {
                 // Apertura del fichero y creacion de BufferedReader para poder
                 // hacer una lectura comoda (disponer del metodo readLine()).
-                archivo = new File("C:\\texto.txt");
+                archivo = new File("./src/examen1/texto.txt");
                 fr = new FileReader(archivo);
                 br = new BufferedReader(fr);
-​
+
                 // Lectura del fichero
                 String linea;
                 while ((linea = br.readLine()) != null) {
                     texto2+=linea;
                 }
-                abc ejercicio6 = new abc(texto);
-                System.out.println("La cadena: "+ejercicio6.texto+" "+ejercicio6.esValida());
                 
-                ejercicio6.setTexto(texto2);
-                System.out.println("\u001B[30mLa cadena: "+ejercicio6.texto+" "+ejercicio6.esValida());
+                Problem1 problem = new Problem1(texto);
+                System.out.print(problem.parseString(texto, problem.getFirstChar()));
+//                Abc ejercicio6 = new Abc(texto);
+//                System.out.println("La cadena: "+ejercicio6.texto+" "+ejercicio6.esValida());
+//                
+//                ejercicio6.setTexto(texto2);
+//                System.out.println("\u001B[30mLa cadena: "+ejercicio6.texto+" "+ejercicio6.esValida());
                 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -57,11 +60,11 @@ public class Examen1 {
                     e2.printStackTrace();
                 }
             }
-​
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-​
+
     }
-​
+
 }

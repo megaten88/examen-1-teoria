@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 package examen1;
-​
+
 /**
  *
  * @author Nahin
  */
-public class abc {
-​
+public class Abc {
+
     String texto;
-​
-    public abc(String cadena) {
+
+    public Abc(String cadena) {
         texto = cadena.replace(" ", "");
     }
-​
+
     public String esValida() {
         String valida = "";
         if (alfabetico()) {
@@ -44,17 +44,17 @@ public class abc {
                     valida = "\u001B[31mNo es valida";
                 }
             }
-​
+
         } else {
             valida = "\u001B[31mNo es valida";
         }
         return valida;
     }
-​
+
     public void setTexto(String nuevo_texto) {
         this.texto = nuevo_texto;
     }
-​
+
     public boolean alfabetico() {
         for (int i = 0; i < texto.length(); i++) {
             char c = texto.charAt(i);
